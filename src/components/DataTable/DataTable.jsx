@@ -31,7 +31,8 @@ export default function DataTable() {
       key: dayData.day,
       width: 55,
       fixed: 'right',
-      sorter: (a, b) => a.age - b.age,
+      // TO-DO: fix sorter
+      sorter: (a, b) => a.day - b.day,
     })
   })
 
@@ -79,6 +80,7 @@ export default function DataTable() {
           value: 'Альфа',
         },
       ],
+      // TO-DO: fix filter
       onFilter: (value, record) => record.name.indexOf(value) === 0,
     },
     {
@@ -88,6 +90,7 @@ export default function DataTable() {
       width: 100,
       fixed: 'left',
       filters: groupFiltersArr,
+      // TO-DO: fix filter
       onFilter: (value, record) => record.name.indexOf(value) === 0,
     },
     {
