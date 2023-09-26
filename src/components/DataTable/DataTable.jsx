@@ -1,5 +1,5 @@
 import { Table } from 'antd'
-import './DataTable.css'
+import './DataTable.module.css'
 
 export default function DataTable() {
   // Mock data

@@ -1,12 +1,12 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Header from './components/Header/Header'
-import Main from './components/Main/Main'
-import Footer from './components/Footer/Footer'
-import './App.css'
+import Header from '../Header/Header.jsx'
+import Main from '../Main/Main.jsx'
+import Footer from '../Footer/Footer.jsx'
+import style from './App.module.css'
 
 function App() {
   return (
-    <div className='app'>
+    <div className={style.app}>
       <Header />
       <Routes>
         <Route path='/' element={<Main />} />
