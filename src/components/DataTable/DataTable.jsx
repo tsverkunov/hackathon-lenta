@@ -99,6 +99,9 @@ export default function DataTable() {
       key: 'category',
       width: 100,
       fixed: 'left',
+      ellipsis: {
+        showTitle: true,
+      },
     },
     {
       title: 'Подкатегория',

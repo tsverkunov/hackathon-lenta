@@ -1,0 +1,55 @@
+.sidebar {
+  box-sizing: border-box;
+  width: 416px;
+  height: 100%;
+  background-color: #f4f6fa;
+  padding: 28px;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+.collapse {
+  /* height: 88px; */
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.collapseButton {
+  padding: 0;
+  /* margin-right: 20px; */
+  width: 32px;
+  height: 32px;
+  background-image: url(../../images/double_chevron_down.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 0 none;
+  border-radius: 5px;
+  outline: 0 none;
+}
+
+.collapseButton:hover {
+  background-color: #e6e6e6;
+}
+
+.filters {
+}
+
+.footer {
+}
+
+.filterButton {
+  border: 0 none;
+  border-radius: 15px;
+  background-color: #f2f0f0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 26px 0;
+  font-size: 25px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.filterButton:hover {
+  background-color: lightblue;
+}

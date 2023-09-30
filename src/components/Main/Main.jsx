@@ -1,11 +1,16 @@
-import DataTable from '../DataTable/DataTable'
+import MainContent from '../MainContent/MainContent'
+import SideBar from '../SideBar/SideBar'
+import Header from '../Header/Header'
 import style from './Main.module.css'
 
 export default function Main() {
   return (
-    <main className={style.main}>
-      <h2>React App</h2>
-      <DataTable />
-    </main>
+    <div className={style.main}>
+      <SideBar />
+      <div className={style.wrapper}>
+        <Header />
+        <MainContent />
+      </div>
+    </div>
   )
 }
