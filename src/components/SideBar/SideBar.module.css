@@ -6,6 +6,7 @@
   padding: 28px;
   display: grid;
   grid-template-rows: min-content 1fr min-content;
+  transition: all 0.2s ease-in-out;
 }
 
 .collapse {
@@ -13,6 +14,30 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  display: flex;
+  padding: 28px 0 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar.collapsed .collapse {
+  display: block;
+}
+
+.sidebar.collapsed .collapseButton {
+  transform: rotate(180deg);
+}
+
+.sidebar.collapsed .filters {
+  display: none;
+}
+
+.sidebar.collapsed .filterButton {
+  display: none;
 }
 
 .collapseButton {
@@ -27,6 +52,7 @@
   border: 0 none;
   border-radius: 5px;
   outline: 0 none;
+  transition: all 0.2s ease-in-out;
 }
 
 .collapseButton:hover {
