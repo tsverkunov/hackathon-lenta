@@ -34,6 +34,7 @@
 
 .sidebar.collapsed .filters {
   display: none;
+  /* opacity: 0; */
 }
 
 .sidebar.collapsed .filterButton {
@@ -52,7 +53,6 @@
   border: 0 none;
   border-radius: 5px;
   outline: 0 none;
-  transition: all 0.2s ease-in-out;
 }
 
 .collapseButton:hover {
@@ -60,6 +60,7 @@
 }
 
 .filters {
+  transition: all 0.2s ease-in-out;
 }
 
 .footer {
@@ -73,9 +74,32 @@
   width: 100%;
   padding: 26px 0;
   font-size: 25px;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .filterButton:hover {
   background-color: lightblue;
+}
+
+.form {
+  margin-top: 28px;
+  color: #000;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.level1 {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.tree {
+  background-color: transparent;
+  font-size: 20px;
 }

@@ -1,3 +1,4 @@
+import { DownOutlined } from '@ant-design/icons'
 import style from './SideBar.module.css'
 
 export default function SideBar() {
@@ -18,12 +19,27 @@ export default function SideBar() {
         <button className={style.collapseButton} onClick={handleCollapse} />
       </div>
       <div className={style.filters}>
-        <form action='submit'></form>
+        <form className={style.form} action='submit'>
+          <ul className={style.list}>
+            <li className={style.level1}>
+              Пункт очень красивого меню
+              <DownOutlined />
+            </li>
+            <li className={style.level1}>
+              Пункт очень красивого меню
+              <DownOutlined />
+            </li>
+            <li className={style.level1}>
+              Пункт очень красивого меню
+              <DownOutlined />
+            </li>
+          </ul>
+        </form>
       </div>
       <div className={style.footer}>
-        <button className={style.filterButton}
-          onClick={handleSubmit}
-        >Открыть прогноз</button>
+        <button className={style.filterButton} onClick={handleSubmit}>
+          Открыть прогноз
+        </button>
       </div>
     </div>
   )
