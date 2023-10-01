@@ -21,7 +21,7 @@
     height: 581px;
     border-radius: 30px;
     border: 1px solid #BBB;
-    position: relative;
+    padding: 60px 75px 80px;
 }
 
 .logo {
@@ -39,13 +39,13 @@
 .title {
     font-size: 50px;
     font-weight: 500;
-    padding: 60px 0 0;
     margin: 0;
 }
 
 .input {
+    box-sizing: border-box;
     padding: 21px 25px;
-    width: 590px;
+    width: 100%;
     border: none;
     border-radius: 15px;
     background: #F8F5F5;
@@ -64,10 +64,11 @@
     flex-direction: column;
     align-items: center;
     border: none;
+    min-width: 590px;
+    padding: 0;
 }
 
 .button {
-    margin: 0 0 80px;
     width: 390px;
     border: none;
     border-radius: 15px;

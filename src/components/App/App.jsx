@@ -1,7 +1,8 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import {Navigate, Route, Routes} from 'react-router-dom'
 import Main from '../Main/Main.jsx'
-import FormPage from '../FormPage/FormPage.jsx'
 import style from './App.module.css'
+import Login from "../Login/Login.jsx";
+import StartSelection from "../StartSelection/StartSelection.jsx";
 
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
       <Routes>
         <Route path='/prediction' element={<Main />} />
         <Route path='/stats' element={<Main />} />
-        <Route path='/login' element={<FormPage />} />
-        <Route path='/' element={<FormPage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<StartSelection />} />
         {/* Other routes here */}
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
