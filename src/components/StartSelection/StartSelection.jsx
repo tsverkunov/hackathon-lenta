@@ -2,6 +2,7 @@ import FormPage from "../FormPage/FormPage.jsx";
 import formPageStyle from "../FormPage/FormPage.module.css";
 import style from "../StartSelection/StartSelection.module.css"
 import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
+import Button from "../Button/Button.jsx";
 
 const StartSelection = () => {
 
@@ -29,17 +30,9 @@ const StartSelection = () => {
           </select>
           <div className={style.wrap}>
             <CustomCheckbox/>
-            {/*<Checkbox className={style.checkbox} onChange={onChange} id='checkbox'>Запомнить</Checkbox>*/}
           </div>
         </fieldset>
-        <button
-          className={formPageStyle.button}
-          onClick={onSubmit}
-          type='submit'
-          aria-label="Выбрать"
-        >
-          Выбрать
-        </button>
+        <Button onSubmit={onSubmit} value='Выбрать'/>
       </form>
     </FormPage>
   );

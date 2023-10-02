@@ -1,8 +1,6 @@
 import style from "../Button/Button.module.css";
-import {useSelector} from "react-redux";
 
-const Button = ({onSubmit}) => {
-  const isValid = useSelector(state => state.formReducer.isValid)
+const Button = ({onSubmit, value, isValid = true}) => {
 
   return (
     <button
@@ -10,9 +8,9 @@ const Button = ({onSubmit}) => {
       onClick={onSubmit}
       type='submit'
       disabled={!isValid}
-      aria-label="Войти"
+      aria-label={value}
     >
-      Войти
+      {value}
     </button>
   );
 };

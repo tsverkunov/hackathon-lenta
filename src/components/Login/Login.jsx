@@ -15,6 +15,7 @@ const Login = () => {
   const login = useSelector(state => state.formReducer.login)
   const password = useSelector(state => state.formReducer.password)
   const errors = useSelector(state => state.formReducer.errors)
+  const isValid = useSelector(state => state.formReducer.isValid)
   const dispatch = useDispatch()
 
   const handleChangeValue = (e) => {
@@ -67,7 +68,7 @@ const Login = () => {
           />
           <span className={style.error}>{errors.password}</span>
         </fieldset>
-        <Button onSubmit={onSubmit}/>
+        <Button onSubmit={onSubmit} isValid={isValid} value='Войти'/>
       </form>
     </FormPage>
   );
