@@ -67,18 +67,3 @@
     min-width: 590px;
     padding: 0;
 }
-
-.button {
-    width: 390px;
-    border: none;
-    border-radius: 15px;
-    background: #F2F0F0;
-    padding: 26px 0;
-    font-size: 20px;
-    font-weight: 400;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
-.button:hover {
-    background-color: #ADD8E6FF;
-}

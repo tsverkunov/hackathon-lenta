@@ -32,7 +32,14 @@ const StartSelection = () => {
             {/*<Checkbox className={style.checkbox} onChange={onChange} id='checkbox'>Запомнить</Checkbox>*/}
           </div>
         </fieldset>
-        <button className={formPageStyle.button} onClick={onSubmit} type='submit'>Выбрать</button>
+        <button
+          className={formPageStyle.button}
+          onClick={onSubmit}
+          type='submit'
+          aria-label="Выбрать"
+        >
+          Выбрать
+        </button>
       </form>
     </FormPage>
   );

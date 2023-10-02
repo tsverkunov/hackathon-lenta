@@ -9,12 +9,12 @@ import {
   changePassword,
   checkValid
 } from "../../redux/formReducer.js";
+import Button from "../Button/Button.jsx";
 
 const Login = () => {
   const login = useSelector(state => state.formReducer.login)
   const password = useSelector(state => state.formReducer.password)
   const errors = useSelector(state => state.formReducer.errors)
-  const isValid = useSelector(state => state.formReducer.isValid)
   const dispatch = useDispatch()
 
   const handleChangeValue = (e) => {
@@ -67,14 +67,7 @@ const Login = () => {
           />
           <span className={style.error}>{errors.password}</span>
         </fieldset>
-        <button
-          className={formPageStyle.button}
-          onClick={onSubmit}
-          type='submit'
-          disabled={!isValid}
-        >
-          Войти
-        </button>
+        <Button onSubmit={onSubmit}/>
       </form>
     </FormPage>
   );
