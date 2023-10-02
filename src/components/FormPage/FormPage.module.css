@@ -46,17 +46,34 @@
     box-sizing: border-box;
     padding: 21px 25px;
     width: 100%;
-    border: none;
+    border: solid 1px #B4C8FF;
     border-radius: 15px;
-    background: #F8F5F5;
+    background: #fff;
     margin: 36px 0 0;
     font-size: 20px;
     font-weight: 400;
+    /*color: #B4C8FF;*/
+    color: #000;
 }
+
 .input::placeholder {
     font-size: 20px;
     font-weight: 400;
+    color: #BABBBE;
+}
+
+.input:hover {
+    border: solid 1px #003C96;
+}
+
+.input:focus {
+    box-shadow: 0 0 4px 2px #2FCBFF;
     color: #000;
+}
+
+.input_error {
+    border: 1px solid #FF0000;
+    color: #FF0000;
 }
 
 .fieldset {

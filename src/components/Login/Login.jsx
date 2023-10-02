@@ -45,7 +45,7 @@ const Login = () => {
       >
         <fieldset className={formPageStyle.fieldset}>
           <input
-            className={formPageStyle.input}
+            className={`${formPageStyle.input} ${errors.login && formPageStyle.input_error}`}
             placeholder='Логин'
             type='text'
             name='login'
@@ -56,7 +56,7 @@ const Login = () => {
           />
           <span className={style.error}>{errors.login}</span>
           <input
-            className={formPageStyle.input}
+            className={`${formPageStyle.input} ${errors.password && formPageStyle.input_error}`}
             placeholder='Пароль'
             type='password'
             name='password'
