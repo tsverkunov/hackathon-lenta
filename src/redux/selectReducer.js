@@ -6,8 +6,8 @@ const selectReducer = createSlice({
     isChecked: false
   },
   reducers: {
-    checked(state, action) {
-      state.isChecked = action.payload
+    checked(state) {
+      state.isChecked = !state.isChecked
     }
   }
 })

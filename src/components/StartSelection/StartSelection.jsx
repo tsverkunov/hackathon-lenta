@@ -1,14 +1,9 @@
 import FormPage from "../FormPage/FormPage.jsx";
 import formPageStyle from "../FormPage/FormPage.module.css";
 import style from "../StartSelection/StartSelection.module.css"
-import {Checkbox} from "antd";
 import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
 
 const StartSelection = () => {
-
-  const onChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
 
   const onSubmit = (e) => {
     e.preventDefault()
