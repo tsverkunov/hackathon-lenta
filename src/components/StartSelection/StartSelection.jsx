@@ -2,6 +2,7 @@ import FormPage from "../FormPage/FormPage.jsx";
 import formPageStyle from "../FormPage/FormPage.module.css";
 import style from "../StartSelection/StartSelection.module.css"
 import {Checkbox} from "antd";
+import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
 
 const StartSelection = () => {
 
@@ -32,9 +33,8 @@ const StartSelection = () => {
             <option value="2">ТК №2</option>
           </select>
           <div className={style.wrap}>
-            <Checkbox className={style.checkbox} onChange={onChange} id='checkbox'>Запомнить</Checkbox>
-            {/*<input type='checkbox' id='remember'/>*/}
-            {/*<label htmlFor="remember">Запомнить</label>*/}
+            <CustomCheckbox/>
+            {/*<Checkbox className={style.checkbox} onChange={onChange} id='checkbox'>Запомнить</Checkbox>*/}
           </div>
         </fieldset>
         <button className={formPageStyle.button} onClick={onSubmit} type='submit'>Выбрать</button>
