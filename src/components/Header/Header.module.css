@@ -4,14 +4,14 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #f4f6fa;
+  background-color: #003C96;
   height: 88px;
   gap: 20px;
 }
 
 .select {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .selectIcon {
@@ -22,7 +22,7 @@
   height: 50px;
   width: 50px;
   border: 0 none;
-  background-color: #f2f0f0;
+  background-color: transparent;
   border-radius: 15px;
   transition: background-color 0.2s ease-in-out;
 }

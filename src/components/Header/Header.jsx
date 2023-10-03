@@ -43,7 +43,7 @@ export default function Header() {
         </a>
       </Dropdown>
       <button className={style.button}>
-        <LogoutOutlined />
+        <LogoutOutlined style={{ color: '#fff' }} />
       </button>
     </header>
   )
