@@ -1,4 +1,3 @@
-import { DownOutlined } from '@ant-design/icons'
 import FilterMenu from '../FilterMenu/FilterMenu'
 import buttonStyle from '../Button/Button.module.css'
 import style from './SideBar.module.css'
