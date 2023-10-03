@@ -1,5 +1,8 @@
 import DataTable from '../DataTable/DataTable'
+import btnStyle from '../Button/Button.module.css'
 import style from './MainContent.module.css'
+
+const btnStyles = `${btnStyle.button} ${style.button}`
 
 export default function MainContent() {
   return (
@@ -9,8 +12,8 @@ export default function MainContent() {
       </h2>
       <DataTable />
       <div className={style.buttons}>
-        <button className={style.button}>Посмотреть статистику</button>
-        <button className={style.button}>
+        <button className={btnStyles}>Посмотреть статистику</button>
+        <button className={btnStyles}>
           <div className={style.icon} />
           Выгрузить таблицу
         </button>

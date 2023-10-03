@@ -25,20 +25,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0 none;
-  border-radius: 15px;
-  background-color: #f2f0f0;
-  box-sizing: border-box;
-  width: 407px;
-  padding: 26px 0;
-  font-size: 20px;
-  transition: background-color 0.2s ease-in-out;
+  /* border: 0 none; */
+  /* border-radius: 15px; */
+  /* background-color: #f2f0f0; */
+  /* box-sizing: border-box; */
+  /* width: 407px; */
+  /* padding: 26px 0; */
+  /* font-size: 20px; */
+  /* transition: background-color 0.2s ease-in-out; */
 }
 
-.button:hover {
+/* .button:hover {
   cursor: pointer;
   background-color: lightblue;
-}
+} */
 
 .icon {
   margin-right: 11px;
