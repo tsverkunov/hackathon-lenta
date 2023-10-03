@@ -19,7 +19,9 @@ export default function SideBar() {
       <div className={style.collapse}>
         <button className={style.collapseButton} onClick={handleCollapse} />
       </div>
-      <FilterMenu className={style.filters} />
+      <div className={style.filters}>
+        <FilterMenu />
+      </div>
       <div className={style.footer}>
         <button
           className={`${buttonStyle.button} ${style.filterButton}`}

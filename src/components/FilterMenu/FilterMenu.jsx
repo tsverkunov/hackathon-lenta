@@ -10,7 +10,7 @@ export default function FilterMenu() {
   return (
     <form className={style.form} action='submit'>
       <MenuWrapper icon={shopIcon} title='Выбрать ТК'>
-        <Categories />
+        <p>Тут будет выбор ТК</p>
       </MenuWrapper>
       <MenuWrapper icon={listIcon} title='Категории'>
         <Categories />
