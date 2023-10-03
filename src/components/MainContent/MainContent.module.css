@@ -49,3 +49,6 @@
   background-position: center;
 }
 
+.button:active > .icon {
+  background-image: url(../../images/microsoft_excel_blue.svg);
+}
