@@ -1,4 +1,6 @@
 import { DownOutlined } from '@ant-design/icons'
+import FilterMenu from '../FilterMenu/FilterMenu'
+import buttonStyle from '../Button/Button.module.css'
 import style from './SideBar.module.css'
 
 export default function SideBar() {
@@ -18,26 +20,12 @@ export default function SideBar() {
       <div className={style.collapse}>
         <button className={style.collapseButton} onClick={handleCollapse} />
       </div>
-      <div className={style.filters}>
-        <form className={style.form} action='submit'>
-          <ul className={style.list}>
-            <li className={style.level1}>
-              Пункт очень красивого меню
-              <DownOutlined />
-            </li>
-            <li className={style.level1}>
-              Пункт очень красивого меню
-              <DownOutlined />
-            </li>
-            <li className={style.level1}>
-              Пункт очень красивого меню
-              <DownOutlined />
-            </li>
-          </ul>
-        </form>
-      </div>
+      <FilterMenu className={style.filters} />
       <div className={style.footer}>
-        <button className={style.filterButton} onClick={handleSubmit}>
+        <button
+          className={`${buttonStyle.button} ${style.filterButton}`}
+          onClick={handleSubmit}
+        >
           Открыть прогноз
         </button>
       </div>

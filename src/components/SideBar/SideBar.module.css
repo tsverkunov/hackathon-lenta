@@ -1,15 +1,17 @@
 .sidebar {
   box-sizing: border-box;
   width: 416px;
-  height: 100%;
-  background-color: #f4f6fa;
-  padding: 28px;
+  max-height: 100vh;
+  background-color: #F0F4FF;
+  /* padding: 28px; */
   display: grid;
   grid-template-rows: min-content 1fr min-content;
   transition: all 0.2s ease-in-out;
 }
 
 .collapse {
+  padding-right: 28px;
+  padding-top: 28px;
   /* height: 88px; */
   display: flex;
   flex-direction: row-reverse;
@@ -64,42 +66,22 @@
 }
 
 .footer {
+  padding: 28px;
 }
 
 .filterButton {
-  border: 0 none;
+  width: 100%;
+  font-weight: 500;
+  /* border: 0 none;
   border-radius: 15px;
   background-color: #f2f0f0;
   box-sizing: border-box;
   width: 100%;
   padding: 26px 0;
   font-size: 25px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; */
 }
 
 .filterButton:hover {
   background-color: lightblue;
-}
-
-.form {
-  margin-top: 28px;
-  color: #000;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.level1 {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.tree {
-  background-color: transparent;
-  font-size: 20px;
 }
