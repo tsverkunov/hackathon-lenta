@@ -30,20 +30,22 @@ function CustomCheckbox() {
   }, [])
 
   return (
-    <fieldset className={style.container}>
-      <label className={style.label}>
-        <input
-          ref={checkboxRef}
-          type="checkbox"
-          className={style.checkbox}
-          name="checkbox"
-          checked={isChecked}
-          onChange={onChangeCheckbox}
-        />
-        <span className={style.visible}></span>
-        <span className={style.text}>Запомнить</span>
-      </label>
-    </fieldset>
+    <div className={style.wrap}>
+      <fieldset className={style.container}>
+        <label className={style.label}>
+          <input
+            ref={checkboxRef}
+            type="checkbox"
+            className={style.checkbox}
+            name="checkbox"
+            checked={isChecked}
+            onChange={onChangeCheckbox}
+          />
+          <span className={style.visible}></span>
+          <span className={style.text}>Запомнить</span>
+        </label>
+      </fieldset>
+    </div>
   );
 }
 

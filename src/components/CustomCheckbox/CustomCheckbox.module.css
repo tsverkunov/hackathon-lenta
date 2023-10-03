@@ -1,3 +1,10 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    padding: 35px 0 0;
+    width: 100%;
+}
+
 .container {
     border: none;
     padding: 0;
