@@ -19,7 +19,6 @@ summary::-moz-list-bullet {
   list-style-type: none;
 }
 
-.level0:after,
 .level1:after {
   justify-self: flex-end;
   width: 32px;
@@ -27,16 +26,6 @@ summary::-moz-list-bullet {
   background-image: url(../../images/arrow.svg);
   content: '';
   transition: transform 0.5s;
-}
-
-.level0 {
-  padding: 0 20px;
-  position: relative;
-  height: 57px;
-  display: grid;
-  grid-template-columns: min-content 1fr min-content;
-  align-items: center;
-  background-color: #fff;
 }
 
 .level1 {
@@ -94,23 +83,8 @@ summary::-moz-list-bullet {
 .catDetails {
 }
 
-/* .catDetails[open] > .category {
-  background-color: #fff;
-} */
-
-.catDetails[open] > .level0:after {
-  transform: rotate(180deg);
-}
-
 .catDetails[open] > .level1:after {
   transform: rotate(180deg);
-}
-
-.catIcon {
-  margin-right: 10px;
-  height: 32px;
-  width: 32px;
-  background-image: url(../../images/menu/list.svg);
 }
 
 .catList {
@@ -124,10 +98,6 @@ summary::-moz-list-bullet {
   padding: 0;
   margin: 0;
 }
-
-/* .selectAllCheckbox {
-  display: none;
-} */
 
 .prodLabel:after {
   display: none;
