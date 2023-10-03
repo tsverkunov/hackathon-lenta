@@ -4,6 +4,7 @@ import shopIcon from '../../images/menu/shop.svg'
 import calendarIcon from '../../images/menu/calendar.svg'
 import MenuWrapper from '../MenuWrapper/MenuWrapper'
 import Categories from '../Categories/Categories'
+import PeriodSelector from '../PeriodSelector/PeriodSelector'
 
 export default function FilterMenu() {
   return (
@@ -15,7 +16,7 @@ export default function FilterMenu() {
         <Categories />
       </MenuWrapper>
       <MenuWrapper icon={calendarIcon} title='Выбрать период'>
-        <Categories />
+        <PeriodSelector />
       </MenuWrapper>
     </form>
   )
