@@ -67,8 +67,12 @@
 }
 
 .input:focus {
+    border: solid 1px #003C96;
     box-shadow: 0 0 4px 2px #2FCBFF;
     color: #000;
+}
+.input:focus-visible {
+    outline: none;
 }
 
 .input_error {

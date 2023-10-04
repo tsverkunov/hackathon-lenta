@@ -28,4 +28,9 @@
 .button:disabled {
     background: #003C96;
     color: #BABBBE;
+    cursor: default;
+}
+
+.button:focus-visible {
+    outline: none;
 }
