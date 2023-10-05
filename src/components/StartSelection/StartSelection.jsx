@@ -5,16 +5,15 @@ import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
 import Button from "../Button/Button.jsx";
 import CustomSelect from "../CustomSelect/CustomSelect.jsx";
 import {useSelector} from "react-redux";
-import {selectedCities, showCitiesList} from "../../redux/selectCityReducer.js";
-import {selectedTK, showListTK} from "../../redux/selectTKReducer.js";
+import { selectedCities, selectedTK, showCitiesList, showListTK } from '../../redux/selectReducer.js';
 
 const StartSelection = () => {
-  const citiesList = useSelector(state => state.selectCityReducer.citiesList)
-  const isShowedCities = useSelector(state => state.selectCityReducer.isShowedCities)
-  const defaultTextCity = useSelector(state => state.selectCityReducer.defaultTextCity)
-  const listTK = useSelector(state => state.selectTKReducer.listTK)
-  const isShowedTK = useSelector(state => state.selectTKReducer.isShowedTK)
-  const defaultTextTK = useSelector(state => state.selectTKReducer.defaultTextTK)
+  const citiesList = useSelector(state => state.selectReducer.citiesList)
+  const isShowedCities = useSelector(state => state.selectReducer.isShowedCities)
+  const defaultTextCity = useSelector(state => state.selectReducer.defaultTextCity)
+  const listTK = useSelector(state => state.selectReducer.listTK)
+  const isShowedTK = useSelector(state => state.selectReducer.isShowedTK)
+  const defaultTextTK = useSelector(state => state.selectReducer.defaultTextTK)
 
   const onSubmit = (e) => {
     e.preventDefault()
