@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const selectReducer = createSlice({
-  name: 'selectReducer',
+const checkboxReducer = createSlice({
+  name: 'checkboxReducer',
   initialState: {
     isChecked: false
   },
@@ -12,5 +12,5 @@ const selectReducer = createSlice({
   }
 })
 
-export default selectReducer.reducer
-export const {checked} = selectReducer.actions
+export default checkboxReducer.reducer
+export const {checked} = checkboxReducer.actions

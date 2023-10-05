@@ -3,48 +3,44 @@ import formPageStyle from "../FormPage/FormPage.module.css";
 import style from "../StartSelection/StartSelection.module.css"
 import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
 import Button from "../Button/Button.jsx";
-import arrow_down from "../../images/arrow_down.svg"
+import CustomSelect from "../CustomSelect/CustomSelect.jsx";
+import {useSelector} from "react-redux";
+import {selectedCities, showCitiesList} from "../../redux/selectCityReducer.js";
+import {selectedTK, showListTK} from "../../redux/selectTKReducer.js";
 
 const StartSelection = () => {
+  const citiesList = useSelector(state => state.selectCityReducer.citiesList)
+  const isShowedCities = useSelector(state => state.selectCityReducer.isShowedCities)
+  const defaultTextCity = useSelector(state => state.selectCityReducer.defaultTextCity)
+  const listTK = useSelector(state => state.selectTKReducer.listTK)
+  const isShowedTK = useSelector(state => state.selectTKReducer.isShowedTK)
+  const defaultTextTK = useSelector(state => state.selectTKReducer.defaultTextTK)
 
   const onSubmit = (e) => {
     e.preventDefault()
     console.log('Send main select form')
-  }
-  const handleChange = () => {
-
   }
 
   return (
     <FormPage>
       <form className={formPageStyle.form} name='mainSelection'>
         <fieldset className={style.fieldset}>
-          <div className={style.input_wrap}>
-            <input
-              className={`${formPageStyle.input} ${style.input}`}
-              id='selectCity'
-              value='Город'
-              onChange={handleChange}
-            />
-            <img className={style.arrow_down} src={arrow_down} alt="стрелка вниз"/>
-          </div>
+          <CustomSelect
+            optionsList={citiesList}
+            showOptionList={isShowedCities}
+            defaultSelectText={defaultTextCity}
+            selectedDefaultText={selectedCities}
+            showList={showCitiesList}
+          />
+          <CustomSelect
+            optionsList={listTK}
+            showOptionList={isShowedTK}
+            defaultSelectText={defaultTextTK}
+            selectedDefaultText={selectedTK}
+            showList={showListTK}
+          />
           <CustomCheckbox/>
         </fieldset>
-        {/*<fieldset className={style.fieldset}>*/}
-        {/*  <select className={formPageStyle.input} id='selectCity'>*/}
-        {/*    <option value="">Город</option>*/}
-        {/*    <option value="Moscow">Moscow</option>*/}
-        {/*    <option value="Batumi">Batumi</option>*/}
-        {/*  </select>*/}
-        {/*  <select className={formPageStyle.input} id='selectTK'>*/}
-        {/*    <option value="">Выберете ТК</option>*/}
-        {/*    <option value="1">ТК №1</option>*/}
-        {/*    <option value="2">ТК №2</option>*/}
-        {/*  </select>*/}
-        {/*  <div className={style.wrap}>*/}
-        {/*    <CustomCheckbox/>*/}
-        {/*  </div>*/}
-        {/*</fieldset>*/}
         <Button onSubmit={onSubmit} value='Выбрать'/>
       </form>
     </FormPage>

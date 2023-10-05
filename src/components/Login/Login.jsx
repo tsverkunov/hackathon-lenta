@@ -37,7 +37,6 @@ const Login = () => {
 
   return (
     <FormPage>
-      <h1 className={formPageStyle.title}>Вход</h1>
       <form
         className={formPageStyle.form}
         name='login'
