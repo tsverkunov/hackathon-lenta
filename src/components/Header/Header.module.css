@@ -1,12 +1,13 @@
 .header {
   box-sizing: border-box;
-  padding: 15px;
+  /* padding: 15px; */
+  padding-right: 74px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  background-color: #003C96;
-  height: 88px;
-  gap: 20px;
+  justify-content: space-between;
+  background-color: #003c96;
+  height: 104px;
+  /* gap: 20px; */
 }
 
 .select {
@@ -29,4 +30,17 @@
 
 .button:hover {
   background-color: lightblue;
+}
+
+.logo {
+  /* align-self: flex-start; */
+  width: 298px;
+  height: 103px;
+  background-image: url(../../images/logo_lenta.svg);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 35px;
 }
