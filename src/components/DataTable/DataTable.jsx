@@ -3,38 +3,7 @@ import './DataTable.module.css'
 
 export default function DataTable() {
   // Mock data
-  const daysDataFromServer = [
-    {
-      day: '01.01.2021',
-      qty: 1,
-    },
-    {
-      day: '02.01.2021',
-      qty: 322,
-    },
-    {
-      day: '03.01.2021',
-      qty: 4123,
-    },
-  ]
-  const daysData = []
   const groupArr = ['Хлеб', 'Сухарики']
-  const groupFiltersArr = groupArr.map(group => ({
-    text: group,
-    value: group,
-  }))
-
-  daysDataFromServer.forEach(dayData => {
-    daysData.push({
-      title: dayData.day,
-      dataIndex: dayData.day,
-      key: dayData.day,
-      width: 55,
-      fixed: 'right',
-      // TO-DO: fix sorter
-      sorter: (a, b) => a.day - b.day,
-    })
-  })
 
   const data = []
   const tkArr = ['Орион', 'Альфа']
@@ -47,6 +16,22 @@ export default function DataTable() {
     'Сухарики «Кириешки»',
     'Очень вкусные сухарики с невероятно длинным названием, которое не помещается в ячейку',
   ]
+  const days = [
+    '01.01',
+    '02.01',
+    '03.01',
+    '04.01',
+    '05.01',
+    '06.01',
+    '07.01',
+    '08.01',
+    '09.01',
+    '10.01',
+    '11.01',
+    '12.01',
+    '13.01',
+    '14.01',
+  ]
 
   for (let i = 0; i < 100; i++) {
     const selectRandom = arr => arr[Math.floor(Math.random() * arr.length)]
@@ -57,64 +42,25 @@ export default function DataTable() {
       category: selectRandom(categoryArr),
       subcategory: selectRandom(subcategoryArr),
       product: selectRandom(productArr),
-      '01.01.2021': Math.floor(Math.random() * 100),
-      '02.01.2021': Math.floor(Math.random() * 100),
-      '03.01.2021': Math.floor(Math.random() * 100),
+      // add random qty for each day from days array
+      ...days.reduce((acc, day) => {
+        acc[day] = Math.floor(Math.random() * 1000)
+        return acc
+      }, {}),
     })
   }
 
+  const daysColumns = days.map(day => ({
+    title: day,
+    dataIndex: day,
+    key: day,
+    width: 50,
+    // fixed: 'right',
+  }))
+
   const columns = [
     {
-      title: 'ТК',
-      dataIndex: 'tk',
-      key: 'tk',
-      width: 50,
-      fixed: 'left',
-      filters: [
-        {
-          text: 'Орион',
-          value: 'Альфа',
-        },
-        {
-          text: 'Альфа',
-          value: 'Альфа',
-        },
-      ],
-      // TO-DO: fix filter
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
-    },
-    {
-      title: 'Группа',
-      dataIndex: 'group',
-      key: 'group',
-      width: 100,
-      fixed: 'left',
-      filters: groupFiltersArr,
-      // TO-DO: fix filter
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
-    },
-    {
-      title: 'Категория',
-      dataIndex: 'category',
-      key: 'category',
-      width: 100,
-      fixed: 'left',
-      ellipsis: {
-        showTitle: true,
-      },
-    },
-    {
-      title: 'Подкатегория',
-      dataIndex: 'subcategory',
-      key: 'subcategory',
-      width: 120,
-      fixed: 'left',
-      ellipsis: {
-        showTitle: true,
-      },
-    },
-    {
-      title: 'Товар',
+      title: 'Продукт/гр',
       dataIndex: 'product',
       key: 'product',
       width: 150,
@@ -124,20 +70,27 @@ export default function DataTable() {
       },
     },
     {
-      title: 'Дни',
-      children: daysData,
+      title: 'ТК',
+      dataIndex: 'tk',
+      key: 'tk',
+      width: 80,
+      fixed: 'left',
+      ellipsis: {
+        showTitle: true,
+      },
     },
+    ...daysColumns,
   ]
 
   return (
     <Table
       columns={columns}
       dataSource={data}
-      bordered
+      // loading={true}
+      // bordered
       size='middle'
       // scroll={{
       //   x: 'calc(700px + 50%)',
-      //   y: 240,
       // }}
     />
   )
