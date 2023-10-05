@@ -1,7 +1,8 @@
 .sidebar {
   box-sizing: border-box;
   width: 416px;
-  max-height: 100vh;
+  height: 100vh;
+  /* max-height: 1000vh; */
   background-color: #F0F4FF;
   /* padding: 28px; */
   display: grid;
@@ -64,7 +65,7 @@
 
 .filters {
   transition: all 0.2s ease-in-out;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .footer {

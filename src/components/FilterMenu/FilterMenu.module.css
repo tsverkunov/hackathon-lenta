@@ -6,7 +6,7 @@
   display: grid;
   gap: 4px;
   grid-auto-rows: min-content;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 summary::marker {
