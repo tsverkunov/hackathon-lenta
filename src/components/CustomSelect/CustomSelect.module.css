@@ -66,12 +66,10 @@
 
 .option_wrap {
     width: 100%;
-    border-bottom: 1px solid #B4C8FF;
 }
 
 .option_wrap:hover {
     background: #F0F4FF;
-    border-bottom: none;
 }
 
 .option {

@@ -3,6 +3,7 @@ import style from './CustomSelect.module.css'
 import arrow from '../../images/arrow.svg'
 
 const CustomSelect = ({
+                        city = false,
                         showList,
                         selectedDefaultText,
                         optionsList,
@@ -40,13 +41,12 @@ const CustomSelect = ({
               <div className={style.option_wrap}>
                 <li
                   className={style.option}
-                  data-name={option.name}
-                  key={option.id}
+                  data-name={city? option.city : option.title}
+                  key={option.city}
                   onClick={handleOptionClick}
                 >
-                  {option.name}
+                  {city? option.city : option.title}
                 </li>
-                <div className={style.underline}></div>
               </div>
             );
           })}

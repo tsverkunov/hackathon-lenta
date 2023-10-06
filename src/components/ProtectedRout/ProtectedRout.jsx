@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 function ProtectedRout({ loggedIn }) {
   return (
-    loggedIn ? <Outlet/> : <Navigate to="/login"/>
+    loggedIn ? <Outlet/> : <Navigate to="/"/>
   );
 }
 

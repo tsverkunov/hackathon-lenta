@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const selectReducer = createSlice({
   name: 'selectReducer',
   initialState: {
+    shops: [],
     isShowedCities: false,
     defaultTextCity: 'Город',
     citiesList: [
@@ -23,6 +24,9 @@ const selectReducer = createSlice({
     ]
   },
   reducers: {
+    setShops(state, action) {
+      state.shops = state.shops.concat(action.payload)
+    },
     showCitiesList(state) {
       state.isShowedCities = !state.isShowedCities
     },
@@ -39,4 +43,4 @@ const selectReducer = createSlice({
 })
 
 export default selectReducer.reducer
-export const {showCitiesList, selectedCities, showListTK, selectedTK} = selectReducer.actions
+export const {setShops, showCitiesList, selectedCities, showListTK, selectedTK} = selectReducer.actions

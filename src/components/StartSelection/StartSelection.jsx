@@ -8,10 +8,11 @@ import {useSelector} from "react-redux";
 import { selectedCities, selectedTK, showCitiesList, showListTK } from '../../redux/selectReducer.js';
 
 const StartSelection = () => {
-  const citiesList = useSelector(state => state.selectReducer.citiesList)
+  const shops = useSelector(state => state.selectReducer.shops)
+  // const citiesList = useSelector(state => state.selectReducer.citiesList)
   const isShowedCities = useSelector(state => state.selectReducer.isShowedCities)
   const defaultTextCity = useSelector(state => state.selectReducer.defaultTextCity)
-  const listTK = useSelector(state => state.selectReducer.listTK)
+  // const listTK = useSelector(state => state.selectReducer.listTK)
   const isShowedTK = useSelector(state => state.selectReducer.isShowedTK)
   const defaultTextTK = useSelector(state => state.selectReducer.defaultTextTK)
 
@@ -25,14 +26,15 @@ const StartSelection = () => {
       <form className={formPageStyle.form} name='mainSelection'>
         <fieldset className={style.fieldset}>
           <CustomSelect
-            optionsList={citiesList}
+            city={true}
+            optionsList={shops}
             showOptionList={isShowedCities}
             defaultSelectText={defaultTextCity}
             selectedDefaultText={selectedCities}
             showList={showCitiesList}
           />
           <CustomSelect
-            optionsList={listTK}
+            optionsList={shops}
             showOptionList={isShowedTK}
             defaultSelectText={defaultTextTK}
             selectedDefaultText={selectedTK}

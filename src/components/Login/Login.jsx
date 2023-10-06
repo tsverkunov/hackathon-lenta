@@ -11,7 +11,7 @@ import {
 } from "../../redux/formReducer.js";
 import Button from "../Button/Button.jsx";
 
-const Login = () => {
+const Login = ({onLogin}) => {
   const login = useSelector(state => state.formReducer.login)
   const password = useSelector(state => state.formReducer.password)
   const errors = useSelector(state => state.formReducer.errors)
@@ -32,7 +32,7 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log('Send login form')
+    onLogin({login, password})
   }
 
   return (
@@ -60,7 +60,7 @@ const Login = () => {
             type='password'
             name='password'
             id='password'
-            minLength="8"
+            minLength="4"
             value={password}
             onChange={handleChangePassword}
             required

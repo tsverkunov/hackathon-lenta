@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const formReducer = createSlice({
   name: 'formReducer',
   initialState: {
+    isLoggedIn: false,
     login: '',
     password: '',
     errors: {
@@ -12,6 +13,9 @@ const formReducer = createSlice({
     isValid: false
   },
   reducers: {
+    setLoggedIn(state, action) {
+      state.isLoggedIn = action.payload
+    },
     changeLogin(state, action) {
       state.login = action.payload
     },
@@ -31,4 +35,11 @@ const formReducer = createSlice({
 })
 
 export default formReducer.reducer
-export const {changeLogin, changePassword, changeErrorLogin, changeErrorPassword, checkValid} = formReducer.actions
+export const {
+  setLoggedIn,
+  changeLogin,
+  changePassword,
+  changeErrorLogin,
+  changeErrorPassword,
+  checkValid
+} = formReducer.actions
