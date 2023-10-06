@@ -1,14 +1,13 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import formReducer from "./formReducer.js";
 import checkboxReducer from "./checkboxReducer.js";
-import selectCityReducer from "./selectCityReducer.js";
-import selectTKReducer from "./selectTKReducer.js";
+import selectReducer from "./selectReducer.js";
+
 
 const rootReducer = combineReducers({
   formReducer: formReducer,
   checkboxReducer: checkboxReducer,
-  selectCityReducer: selectCityReducer,
-  selectTKReducer: selectTKReducer
+  selectReducer: selectReducer,
 })
 
 export const store = configureStore({

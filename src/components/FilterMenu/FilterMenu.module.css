@@ -1,12 +1,12 @@
 .form {
-  margin-top: 28px;
+  /* margin-top: 28px; */
   color: #000;
   font-weight: 500;
   font-size: 18px;
   display: grid;
   gap: 4px;
   grid-auto-rows: min-content;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 summary::marker {

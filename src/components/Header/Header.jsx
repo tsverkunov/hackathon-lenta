@@ -20,31 +20,34 @@ const items = [
 export default function Header() {
   return (
     <header className={style.header}>
-      <Dropdown
-        menu={{
-          items,
-          selectable: true,
-        }}
-      >
-        <a href='#' className={style.select}>
-          Москва и МО
-          <DownOutlined className={style.selectIcon} />
-        </a>
-      </Dropdown>
-      <Dropdown
-        menu={{
-          items,
-          selectable: true,
-        }}
-      >
-        <a href='#' className={style.select}>
-          ТК №8
-          <DownOutlined className={style.selectIcon} />
-        </a>
-      </Dropdown>
-      <button className={style.button}>
-        <LogoutOutlined style={{ color: '#fff' }} />
-      </button>
+      <div className={style.logo}/>
+      <div className={style.wrapper}>
+        <Dropdown
+          menu={{
+            items,
+            selectable: true,
+          }}
+        >
+          <a href='#' className={style.select}>
+            Москва и МО
+            <DownOutlined className={style.selectIcon} />
+          </a>
+        </Dropdown>
+        <Dropdown
+          menu={{
+            items,
+            selectable: true,
+          }}
+        >
+          <a href='#' className={style.select}>
+            ТК №8
+            <DownOutlined className={style.selectIcon} />
+          </a>
+        </Dropdown>
+        <button className={style.button}>
+          <LogoutOutlined style={{ color: '#fff' }} size='32px' />
+        </button>
+      </div>
     </header>
   )
 }

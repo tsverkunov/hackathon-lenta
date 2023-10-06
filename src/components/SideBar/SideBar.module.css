@@ -1,7 +1,11 @@
 .sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
   box-sizing: border-box;
   width: 416px;
-  max-height: 100vh;
+  height: 100vh;
+  /* max-height: 1000vh; */
   background-color: #F0F4FF;
   /* padding: 28px; */
   display: grid;
@@ -11,8 +15,8 @@
 
 .collapse {
   padding-right: 28px;
-  padding-top: 28px;
-  /* height: 88px; */
+  /* padding-top: 28px; */
+  height: 104px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -27,7 +31,7 @@
 }
 
 .sidebar.collapsed .collapse {
-  display: block;
+  /* display: block; */
   padding-right: 0;
 }
 
@@ -64,7 +68,7 @@
 
 .filters {
   transition: all 0.2s ease-in-out;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .footer {
