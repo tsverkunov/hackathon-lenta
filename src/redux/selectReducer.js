@@ -21,7 +21,8 @@ const selectReducer = createSlice({
       {id: 3, name: 'ТК №3'},
       {id: 4, name: 'ТК №4'},
       {id: 5, name: 'ТК №5'},
-    ]
+    ],
+    isChecked: false
   },
   reducers: {
     setShops(state, action) {
@@ -38,9 +39,12 @@ const selectReducer = createSlice({
     },
     selectedTK(state, action) {
       state.defaultTextTK = action.payload
+    },
+    checked(state) {
+      state.isChecked = !state.isChecked
     }
   }
 })
 
 export default selectReducer.reducer
-export const {setShops, showCitiesList, selectedCities, showListTK, selectedTK} = selectReducer.actions
+export const {setShops, showCitiesList, selectedCities, showListTK, selectedTK, checked} = selectReducer.actions

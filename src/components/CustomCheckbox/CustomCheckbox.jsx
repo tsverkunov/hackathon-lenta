@@ -1,10 +1,10 @@
 import style from '../CustomCheckbox/CustomCheckbox.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {checked} from "../../redux/checkboxReducer.js";
+import {checked} from "../../redux/selectReducer.js";
 import {useEffect, useRef} from "react";
 
 function CustomCheckbox() {
-  const isChecked = useSelector(state => state.checkboxReducer.isChecked)
+  const isChecked = useSelector(state => state.selectReducer.isChecked)
   const dispatch = useDispatch()
   const checkboxRef = useRef(null)
 
