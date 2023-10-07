@@ -39,6 +39,17 @@ class Api {
       headers: this._headers,
     })
   }
+
+  getForecast(dateBefore, dateAfter) {
+    const url = `${this._baseUrl}/forecast${
+      dateBefore ? `?date_before=${dateBefore}` : ''
+    }${dateAfter ? `&date_after=${dateAfter}` : ''}`
+
+    return this._request(url, {
+      method: 'GET',
+      headers: this._headers,
+    })
+  }
 }
 
 const token = localStorage.getItem('token')
