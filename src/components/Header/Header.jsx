@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Dropdown } from 'antd'
 import { DownOutlined, LogoutOutlined } from '@ant-design/icons'
 import style from './Header.module.css'
@@ -17,10 +18,10 @@ const items = [
   },
 ]
 
-export default function Header() {
+export default function Header({ type }) {
   return (
     <header className={style.header}>
-      <div className={style.logo}/>
+      <div className={style.logo} />
       <div className={style.wrapper}>
         <Dropdown
           menu={{
@@ -33,17 +34,19 @@ export default function Header() {
             <DownOutlined className={style.selectIcon} />
           </a>
         </Dropdown>
-        <Dropdown
-          menu={{
-            items,
-            selectable: true,
-          }}
-        >
-          <a href='#' className={style.select}>
-            ТК №8
-            <DownOutlined className={style.selectIcon} />
-          </a>
-        </Dropdown>
+        {type === 'forecast' && (
+          <Dropdown
+            menu={{
+              items,
+              selectable: true,
+            }}
+          >
+            <a href='#' className={style.select}>
+              ТК №8
+              <DownOutlined className={style.selectIcon} />
+            </a>
+          </Dropdown>
+        )}
         <button className={style.button}>
           <LogoutOutlined style={{ color: '#fff' }} size='32px' />
         </button>

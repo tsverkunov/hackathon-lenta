@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import FilterMenu from '../FilterMenu/FilterMenu'
 import buttonStyle from '../Button/Button.module.css'
 import style from './SideBar.module.css'
 
-export default function SideBar() {
+export default function SideBar({type}) {
   function handleSubmit(e) {
     e.preventDefault()
     console.log('Открыть прогноз')
@@ -20,7 +21,7 @@ export default function SideBar() {
         <button className={style.collapseButton} onClick={handleCollapse} />
       </div>
       <div className={style.filters}>
-        <FilterMenu />
+        <FilterMenu type={type}/>
       </div>
       <div className={style.footer}>
         <button
