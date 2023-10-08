@@ -5,9 +5,11 @@ import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
 import Button from "../Button/Button.jsx";
 import CustomSelect from "../CustomSelect/CustomSelect.jsx";
 import {useSelector} from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectedCities, selectedTK, showCitiesList, showListTK } from '../../redux/selectReducer.js';
 
 const StartSelection = () => {
+  const navigate = useNavigate()
   const shops = useSelector(state => state.selectReducer.shops)
   // const citiesList = useSelector(state => state.selectReducer.citiesList)
   const isShowedCities = useSelector(state => state.selectReducer.isShowedCities)
@@ -19,6 +21,7 @@ const StartSelection = () => {
   const onSubmit = (e) => {
     e.preventDefault()
     console.log('Send main select form')
+    navigate('/forecast')
   }
 
   return (
