@@ -18,7 +18,9 @@ export default function Header({ type }) {
   const cities = useSelector(state => state.dataReducer.cities)
   const selectedCity = useSelector(state => state.dataReducer.selectedCity)
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    
+  }, [])
 
   const handleLogout = () => {
     api

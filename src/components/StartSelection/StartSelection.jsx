@@ -7,6 +7,7 @@ import CustomSelect from "../CustomSelect/CustomSelect.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {filled, selectedCities, selectedTK, showCitiesList, showListTK} from '../../redux/selectReducer.js';
+import { setSelectedCity, setSelectedShop } from "../../redux/dataReducer.js";
 import {useEffect} from "react";
 
 const StartSelection = () => {
@@ -30,6 +31,8 @@ const StartSelection = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    dispatch(setSelectedCity(defaultTextCity))
+    dispatch(setSelectedShop(defaultTextTK))
     console.log('Send main select form')
     navigate('/forecast')
   }
