@@ -24,8 +24,6 @@ function App() {
         localStorage.setItem('token', data.auth_token)
         handleShops()
       })
-      .then(() => {
-      })
       .catch((error) => {
         console.log('error :', error)
       })
@@ -35,7 +33,6 @@ function App() {
     api.getShops()
       .then((data) => {
         dispatch(setShops(data.data))
-        console.log(data.data);
       })
       .catch(error => {
         console.log('error :', error)
@@ -47,11 +44,11 @@ function App() {
       <div className={style.app}>
         <Routes>
           <Route path='/' element={<Login onLogin={handleLogin}/>}/>
-          <Route element={<ProtectedRout loggedIn={loggedIn}/>}>
+          {/*<Route element={<ProtectedRout loggedIn={loggedIn}/>}>*/}
             <Route path='/select' element={<StartSelection/>}/>
             <Route path='/prediction' element={<Main/>}/>
             <Route path='/stats' element={<Main/>}/>
-          </Route>
+          {/*</Route>*/}
           <Route path='*' element={<Navigate to='/'/>}/>
         </Routes>
       </div>
