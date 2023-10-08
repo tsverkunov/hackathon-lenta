@@ -4,10 +4,6 @@ import { useEffect } from 'react'
 import api from '../../utils/Api.js'
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  setShops,
-  setSelectedShop,
-  setCities,
-  setSelectedCity,
   setCategories,
   setSelectedCategories,
 } from '../../redux/dataReducer.js'
@@ -18,9 +14,6 @@ import style from './Main.module.css'
 
 export default function Main({ type }) {
   const dispatch = useDispatch()
-  const shops = useSelector(state => state.dataReducer.shops)
-  const cities = useSelector(state => state.dataReducer.cities)
-  const categories = useSelector(state => state.dataReducer.categories)
 
   useEffect(() => {
     api
