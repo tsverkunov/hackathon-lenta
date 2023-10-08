@@ -4,9 +4,10 @@ import style from "../StartSelection/StartSelection.module.css"
 import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
 import Button from "../Button/Button.jsx";
 import CustomSelect from "../CustomSelect/CustomSelect.jsx";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectedCities, selectedTK, showCitiesList, showListTK } from '../../redux/selectReducer.js';
+import {filled, selectedCities, selectedTK, showCitiesList, showListTK} from '../../redux/selectReducer.js';
+import {useEffect} from "react";
 
 const StartSelection = () => {
   const navigate = useNavigate()
@@ -17,6 +18,15 @@ const StartSelection = () => {
   // const listTK = useSelector(state => state.selectReducer.listTK)
   const isShowedTK = useSelector(state => state.selectReducer.isShowedTK)
   const defaultTextTK = useSelector(state => state.selectReducer.defaultTextTK)
+  const isFilled = useSelector(state => state.selectReducer.isFilled)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (defaultTextCity !== 'Город' && defaultTextTK !== 'Выберите ТК') {
+      dispatch(filled(true))
+    }
+  }, [defaultTextCity, defaultTextTK])
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -29,6 +39,8 @@ const StartSelection = () => {
       <form className={formPageStyle.form} name='mainSelection'>
         <fieldset className={style.fieldset}>
           <CustomSelect
+            closedOtherList={showListTK}
+            isOpenList={isShowedTK}
             city={true}
             optionsList={shops}
             showOptionList={isShowedCities}
@@ -37,6 +49,8 @@ const StartSelection = () => {
             showList={showCitiesList}
           />
           <CustomSelect
+            closedOtherList={showCitiesList}
+            isOpenList={isShowedCities}
             optionsList={shops}
             showOptionList={isShowedTK}
             defaultSelectText={defaultTextTK}
@@ -45,7 +59,7 @@ const StartSelection = () => {
           />
           <CustomCheckbox/>
         </fieldset>
-        <Button onSubmit={onSubmit} value='Выбрать'/>
+        <Button onSubmit={onSubmit} value='Выбрать' isValid={isFilled}/>
       </form>
     </FormPage>
   );
