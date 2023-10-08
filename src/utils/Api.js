@@ -40,6 +40,13 @@ class Api {
     })
   }
 
+  getProducts() {
+    return this._request(`${this._baseUrl}/product`, {
+      method: 'GET',
+      headers: this._headers,
+    })
+  }
+
   getForecast(dateBefore, dateAfter) {
     const url = `${this._baseUrl}/forecast${
       dateBefore ? `?date_before=${dateBefore}` : ''

@@ -22,26 +22,36 @@ export default function Main({ type }) {
   const cities = useSelector(state => state.dataReducer.cities)
   const categories = useSelector(state => state.dataReducer.categories)
 
-
   useEffect(() => {
+    api
+      .getProducts()
+      .then(data => {
+        const tree = {}
 
+        data.data.forEach(item => {
+          const group = item.group
+          const category = item.category
+          const subcategory = item.subcategory
+          const sku = item.sku
+          if (!tree[group]) {
+            tree[group] = {}
+          }
+          if (!tree[group][category]) {
+            tree[group][category] = {}
+          }
+          if (!tree[group][category][subcategory]) {
+            tree[group][category][subcategory] = []
+          }
+          tree[group][category][subcategory].push(sku)
+        })
+
+        console.log('tree :', tree)
+        dispatch(setCategories(tree))
+      })
+      .catch(error => {
+        console.log('error :', error)
+      })
   }, [])
-  // useEffect(() => {
-  //   api
-  //     .getShops()
-  //     .then(data => {
-  //       const shopTitles = data.data.map(shop => shop.title)
-  //       // console.log('shopTitles :', shopTitles)
-  //       dispatch(setShops(shopTitles))
-  //       dispatch(setSelectedShop(shopTitles[0]))
-  //       const uniqueCities = [...new Set(data.data.map(shop => shop.city))]
-  //       dispatch(setCities(uniqueCities))
-  //       dispatch(setSelectedCity(uniqueCities[0]))
-  //     })
-  //     .catch(error => {
-  //       console.log('error :', error)
-  //     })
-  // }, [])
 
   return (
     <div className={style.main}>

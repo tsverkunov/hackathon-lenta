@@ -7,7 +7,7 @@ const dataReducer = createSlice({
     selectedCity: '',
     shops: [],
     selectedShop: '',
-    categories: [],
+    categories: {},
     selectedCategories: [],
   },
   reducers: {
