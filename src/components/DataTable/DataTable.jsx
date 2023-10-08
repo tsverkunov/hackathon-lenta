@@ -38,9 +38,6 @@ export default function DataTable() {
     data.push({
       key: i,
       tk: selectRandom(tkArr),
-      group: selectRandom(groupArr),
-      category: selectRandom(categoryArr),
-      subcategory: selectRandom(subcategoryArr),
       product: selectRandom(productArr),
       // add random qty for each day from days array
       ...days.reduce((acc, day) => {
