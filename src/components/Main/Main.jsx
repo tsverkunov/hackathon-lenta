@@ -2,10 +2,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from 'react'
 import api from '../../utils/Api.js'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {
   setCategories,
-  setSelectedCategories,
 } from '../../redux/dataReducer.js'
 import MainContent from '../MainContent/MainContent'
 import SideBar from '../SideBar/SideBar'
@@ -25,17 +24,20 @@ export default function Main({ type }) {
           const group = item.group
           const category = item.category
           const subcategory = item.subcategory
-          const sku = item.sku
+          // const sku = item.sku
           if (!tree[group]) {
             tree[group] = {}
           }
           if (!tree[group][category]) {
-            tree[group][category] = {}
+            tree[group][category] = []
           }
-          if (!tree[group][category][subcategory]) {
-            tree[group][category][subcategory] = []
+          if (!tree[group][category].includes(subcategory)) {
+            tree[group][category].push(subcategory)
           }
-          tree[group][category][subcategory].push(sku)
+          // if (!tree[group][category][subcategory]) {
+          //   tree[group][category][subcategory] = []
+          // }
+          // tree[group][category][subcategory].push(sku)
         })
 
         console.log('tree :', tree)

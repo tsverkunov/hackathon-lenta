@@ -26,8 +26,13 @@ const dataReducer = createSlice({
     setCategories: (state, action) => {
       state.categories = action.payload
     },
-    setSelectedCategories: (state, action) => {
-      state.selectedCategories = action.payload
+    addSelectedCategories: (state, action) => {
+      state.selectedCategories.push(...action.payload)
+    },
+    removeSelectedCategories: (state, action) => {
+      state.selectedCategories = state.selectedCategories.filter(
+        (category) => !action.payload.includes(category)
+      )
     },
   },
 })
@@ -39,5 +44,6 @@ export const {
   setShops,
   setSelectedShop,
   setCategories,
-  setSelectedCategories,
+  addSelectedCategories,
+  removeSelectedCategories,
 } = dataReducer.actions
