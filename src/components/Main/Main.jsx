@@ -25,7 +25,6 @@ export default function Main({ type }) {
         subcategory: selectedCategories,
       })
       dispatch(setForeCast(res.data))
-      console.log('res :', res)
     } catch (err) {
       console.log(err)
     } finally {

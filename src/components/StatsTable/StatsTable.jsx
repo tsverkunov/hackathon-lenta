@@ -7,14 +7,14 @@ import {setStats} from "../../redux/dataReducer.js";
 export default function StatsTable() {
   const dispatch = useDispatch()
   const stats = useSelector(state => state.dataReducer.stats)
-  const selectedShops = useSelector(state => state.dataReducer.selectedShops)
+  const selectedShop = useSelector(state => state.dataReducer.selectedShop)
 
 
   useEffect(() => {
     if (stats.length) return
 
     api.getStats({
-      store: selectedShops
+      store: selectedShop
     })
       .then(data => {
         console.log(data);
