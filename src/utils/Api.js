@@ -1,3 +1,5 @@
+import FileSaver from 'file-saver'
+
 class Api {
   constructor(options) {
     this._version = options.version
@@ -79,6 +81,24 @@ class Api {
       method: 'GET',
       headers: this._headers,
     })
+  }
+
+  getExcel(type = '', options = {}) {
+    if (!type) throw new Error('Type is required')
+    const url = `${
+      this._baseUrl
+    }/${type}/excel_${type}_download${this._getParams(options)}`
+
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        ...this._headers,
+        'Content-Type': 'application/vnd.ms-excel',
+      },
+    })
+      .then(res => res.blob())
+      .then(blob => FileSaver.saveAs(blob, `${type}.xlsx`))
+      .catch(err => console.log(err))
   }
 }
 

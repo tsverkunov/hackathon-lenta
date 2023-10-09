@@ -30,6 +30,15 @@ export default function Main({ type }) {
     }
   }
 
+const handleExcel = () => {
+  api.getExcel(
+    type,
+    type === 'forecast'
+      ? { store: selectedShop, subcategory: selectedCategories }
+      : { store: selectedShop, subcategory: selectedCategories }
+  )
+}
+
   useEffect(() => {
     api
       .getProducts()
@@ -50,10 +59,6 @@ export default function Main({ type }) {
           if (!tree[group][category].includes(subcategory)) {
             tree[group][category].push(subcategory)
           }
-          // if (!tree[group][category][subcategory]) {
-          //   tree[group][category][subcategory] = []
-          // }
-          // tree[group][category][subcategory].push(sku)
         })
 
         console.log('tree :', tree)
@@ -69,7 +74,10 @@ export default function Main({ type }) {
       <SideBar type={type} handleForecastUpdate={updateForecast} />
       <div className={style.wrapper}>
         <Header type={type} handleForecastUpdate={updateForecast} />
-        <MainContent type={type} />
+        <MainContent
+          type={type}
+          getExcel={handleExcel}
+        />
       </div>
     </div>
   )
