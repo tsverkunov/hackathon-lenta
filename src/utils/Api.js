@@ -47,7 +47,9 @@ class Api {
   logout() {
     return this._request(`${this._baseUrl}/auth/token/logout`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json',
+      }
     })
   }
 
