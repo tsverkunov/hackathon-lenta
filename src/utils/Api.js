@@ -67,6 +67,27 @@ class Api {
       headers: this._headers,
     })
   }
+
+  getStats(options = {}) {
+    let params = '?'
+
+    params += Object.keys(options)
+      .map(key => {
+        if (Array.isArray(options[key])) {
+          return options[key].map(item => `${key}=${item}`).join('&')
+        } else {
+          return `${key}=${options[key]}`
+        }
+      })
+      .join('&')
+
+    const url = `${this._baseUrl}/statistics${params}`
+
+    return this._request(url, {
+      method: 'GET',
+      headers: this._headers,
+    })
+  }
 }
 
 const token = localStorage.getItem('token')
