@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
+import { useSelector, useDispatch } from 'react-redux'
+import { setForeCast } from '../../redux/dataReducer'
 import { useEffect } from 'react'
 import api from '../../utils/Api.js'
-import { useDispatch } from 'react-redux'
-import {
-  setCategories,
-} from '../../redux/dataReducer.js'
+import { setCategories } from '../../redux/dataReducer.js'
 import MainContent from '../MainContent/MainContent'
 import SideBar from '../SideBar/SideBar'
 import Header from '../Header/Header'
@@ -13,6 +12,23 @@ import style from './Main.module.css'
 
 export default function Main({ type }) {
   const dispatch = useDispatch()
+  const selectedShop = useSelector(state => state.dataReducer.selectedShop)
+  const selectedCategories = useSelector(
+    state => state.dataReducer.selectedCategories
+  )
+
+  async function updateForecast() {
+    try {
+      const res = await api.getForecast({
+        store: selectedShop,
+        subcategory: selectedCategories,
+      })
+      dispatch(setForeCast(res.data))
+      console.log('res :', res)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   useEffect(() => {
     api
@@ -50,7 +66,7 @@ export default function Main({ type }) {
 
   return (
     <div className={style.main}>
-      <SideBar type={type} />
+      <SideBar type={type} handleUpdate={updateForecast} />
       <div className={style.wrapper}>
         <Header type={type} />
         <MainContent type={type} />

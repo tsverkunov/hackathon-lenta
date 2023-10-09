@@ -3,9 +3,10 @@ import FilterMenu from '../FilterMenu/FilterMenu'
 import buttonStyle from '../Button/Button.module.css'
 import style from './SideBar.module.css'
 
-export default function SideBar({ type }) {
+export default function SideBar({ type, handleUpdate }) {
   function handleSubmit(e) {
     e.preventDefault()
+    handleUpdate()
     console.log('Открыть прогноз')
   }
 
