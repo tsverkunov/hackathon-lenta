@@ -1,5 +1,4 @@
 import {Table} from 'antd'
-import './DataTable.module.css'
 import {useSelector} from "react-redux";
 
 export default function DataTable() {
