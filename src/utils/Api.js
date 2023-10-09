@@ -12,6 +12,22 @@ class Api {
     return res.json().then(err => Promise.reject(err))
   }
 
+  _getParams(options) {
+    let params = '?'
+
+    params += Object.keys(options)
+      .map(key => {
+        if (Array.isArray(options[key])) {
+          return options[key].map(item => `${key}=${item}`).join('&')
+        } else {
+          return `${key}=${options[key]}`
+        }
+      })
+      .join('&')
+
+    return params
+  }
+
   _request(url, options) {
     return fetch(url, options).then(this._getJson)
   }
@@ -48,19 +64,7 @@ class Api {
   }
 
   getForecast(options = {}) {
-    let params = '?'
-
-    params += Object.keys(options)
-      .map(key => {
-        if (Array.isArray(options[key])) {
-          return options[key].map(item => `${key}=${item}`).join('&')
-        } else {
-          return `${key}=${options[key]}`
-        }
-      })
-      .join('&')
-
-    const url = `${this._baseUrl}/forecast${params}`
+    const url = `${this._baseUrl}/forecast${this._getParams(options)}`
 
     return this._request(url, {
       method: 'GET',
@@ -69,19 +73,7 @@ class Api {
   }
 
   getStats(options = {}) {
-    let params = '?'
-
-    params += Object.keys(options)
-      .map(key => {
-        if (Array.isArray(options[key])) {
-          return options[key].map(item => `${key}=${item}`).join('&')
-        } else {
-          return `${key}=${options[key]}`
-        }
-      })
-      .join('&')
-
-    const url = `${this._baseUrl}/statistics${params}`
+    const url = `${this._baseUrl}/statistics${this._getParams(options)}`
 
     return this._request(url, {
       method: 'GET',
