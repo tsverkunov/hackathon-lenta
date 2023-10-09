@@ -22,7 +22,7 @@ class Api {
     return this._request(`${this._baseUrl}/auth/token/login`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({email, password}),
+      body: JSON.stringify({ email, password }),
     })
   }
 
@@ -47,10 +47,20 @@ class Api {
     })
   }
 
-  getForecast(dateBefore, dateAfter, params = '') {
-    const url = `${this._baseUrl}/forecast${
-      dateBefore ? `?date_before=${dateBefore}` : ''}${
-      dateAfter ? `&date_after=${dateAfter}` : ''}?store=${params}`
+  getForecast(options = {}) {
+    let params = '?'
+
+    params += Object.keys(options)
+      .map(key => {
+        if (Array.isArray(options[key])) {
+          return options[key].map(item => `${key}=${item}`).join('&')
+        } else {
+          return `${key}=${options[key]}`
+        }
+      })
+      .join('&')
+
+    const url = `${this._baseUrl}/forecast${params}`
 
     return this._request(url, {
       method: 'GET',

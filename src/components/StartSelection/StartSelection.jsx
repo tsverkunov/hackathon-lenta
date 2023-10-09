@@ -32,7 +32,9 @@ const StartSelection = () => {
 
   const handleForecast = () => {
     api
-      .getForecast('','', defaultTextTK)
+      .getForecast({
+        store: [defaultTextTK],
+      })
       .then((data) => {
         dispatch(setForeCast(data.data))
       })
