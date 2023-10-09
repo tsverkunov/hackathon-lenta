@@ -3,7 +3,7 @@ import FilterMenu from '../FilterMenu/FilterMenu'
 import buttonStyle from '../Button/Button.module.css'
 import style from './SideBar.module.css'
 
-export default function SideBar({type}) {
+export default function SideBar({ type }) {
   function handleSubmit(e) {
     e.preventDefault()
     console.log('Открыть прогноз')
@@ -21,14 +21,14 @@ export default function SideBar({type}) {
         <button className={style.collapseButton} onClick={handleCollapse} />
       </div>
       <div className={style.filters}>
-        <FilterMenu type={type}/>
+        <FilterMenu type={type} />
       </div>
       <div className={style.footer}>
         <button
           className={`${buttonStyle.button} ${style.filterButton}`}
           onClick={handleSubmit}
         >
-          Открыть прогноз
+          {type === 'stats' ? 'Показать аналитику' : 'Открыть прогноз'}
         </button>
       </div>
     </div>
