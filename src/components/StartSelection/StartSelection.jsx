@@ -5,10 +5,11 @@ import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.jsx";
 import Button from "../Button/Button.jsx";
 import CustomSelect from "../CustomSelect/CustomSelect.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {filled, selectedCities, selectedTK, showCitiesList, showListTK} from '../../redux/selectReducer.js';
-import { setSelectedCity, setSelectedShop } from "../../redux/dataReducer.js";
+import dataReducer, {setForeCast, setSelectedCity, setSelectedShop} from "../../redux/dataReducer.js";
 import {useEffect} from "react";
+import api from "../../utils/Api.js";
 
 const StartSelection = () => {
   const navigate = useNavigate()
@@ -29,12 +30,21 @@ const StartSelection = () => {
     }
   }, [defaultTextCity, defaultTextTK])
 
+  const handleForecast = () => {
+    api
+      .getForecast('','', defaultTextTK)
+      .then((data) => {
+        dispatch(setForeCast(data.data))
+      })
+      .catch(error => console.log(error))
+  }
+
   const onSubmit = (e) => {
     e.preventDefault()
     dispatch(setSelectedCity(defaultTextCity))
     dispatch(setSelectedShop(defaultTextTK))
-    console.log('Send main select form')
     navigate('/forecast')
+    handleForecast()
   }
 
   return (

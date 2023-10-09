@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import style from './CustomSelect.module.css'
 import arrow from '../../images/arrow.svg'
-import {useEffect, useRef} from "react";
+import {useRef} from "react";
 
 const CustomSelect = ({
                         closedOtherList,
@@ -15,7 +15,6 @@ const CustomSelect = ({
                       }) => {
   const dispatch = useDispatch()
   const optionsRef = useRef(null)
-  console.log(optionsRef)
 
   // useEffect(() => {
   //   const log = (e) => {

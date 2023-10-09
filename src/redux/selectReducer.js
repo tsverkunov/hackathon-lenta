@@ -27,7 +27,7 @@ const selectReducer = createSlice({
   },
   reducers: {
     setShops(state, action) {
-      state.shops = state.shops.concat(action.payload)
+      state.shops = action.payload
     },
     showCitiesList(state) {
       state.isShowedCities = !state.isShowedCities
@@ -45,10 +45,18 @@ const selectReducer = createSlice({
       state.isChecked = !state.isChecked
     },
     filled(state, action) {
-        state.isFilled = action.payload
+      state.isFilled = action.payload
     }
   }
 })
 
 export default selectReducer.reducer
-export const {setShops, showCitiesList, selectedCities, showListTK, selectedTK, checked, filled} = selectReducer.actions
+export const {
+  setShops,
+  showCitiesList,
+  selectedCities,
+  showListTK,
+  selectedTK,
+  checked,
+  filled
+} = selectReducer.actions

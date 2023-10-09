@@ -1,47 +1,31 @@
-import { Table } from 'antd'
+import {Table} from 'antd'
 import './DataTable.module.css'
+import {useSelector} from "react-redux";
 
 export default function DataTable() {
-  // Mock data
-  const groupArr = ['Хлеб', 'Сухарики']
+
+  const forecast = useSelector(state => state.dataReducer.forecast)
+  const productList = forecast.map(product => product.sku)
+  const storeList = forecast.map(store => store.store)
+  const salesUnits = forecast.map(units => units.sales_units)
+
+  //достаю даты и привожу к нужному для таблицы формоту
+  const keysArr = salesUnits.map(obj => Object.keys(obj))
+  const days = keysArr.length ? keysArr[0].map(item => item.split('-').slice(1).reverse().join('.')) : []
+
+  //достаю значения и привожу к нужному для таблицы формоту
+  const valuesArr = salesUnits.map(obj => Object.values(obj))
 
   const data = []
-  const tkArr = ['Орион', 'Альфа']
-
-  const categoryArr = ['Черный вкусный хлеб', 'Белый вкусный хлеб', 'Сухарики']
-  const subcategoryArr = ['Черный', 'Белый', 'Сухарики']
-  const productArr = [
-    'Черный хлеб «Вкусняшкино»',
-    'Белый хлеб «МосХлеб»',
-    'Сухарики «Кириешки»',
-    'Очень вкусные сухарики с невероятно длинным названием, которое не помещается в ячейку',
-  ]
-  const days = [
-    '01.01',
-    '02.01',
-    '03.01',
-    '04.01',
-    '05.01',
-    '06.01',
-    '07.01',
-    '08.01',
-    '09.01',
-    '10.01',
-    '11.01',
-    '12.01',
-    '13.01',
-    '14.01',
-  ]
-
-  for (let i = 0; i < 100; i++) {
-    const selectRandom = arr => arr[Math.floor(Math.random() * arr.length)]
+  for (let i = 0; i < productList.length; i++) {
+    const select = arr => arr[i]
     data.push({
       key: i,
-      tk: selectRandom(tkArr),
-      product: selectRandom(productArr),
-      // add random qty for each day from days array
-      ...days.reduce((acc, day) => {
-        acc[day] = Math.floor(Math.random() * 1000)
+      tk: select(storeList),
+      product: select(productList),
+
+      ...days.reduce((acc, day, currentIndex) => {
+        acc[day] = valuesArr[i][currentIndex]
         return acc
       }, {}),
     })
@@ -51,7 +35,7 @@ export default function DataTable() {
     title: day,
     dataIndex: day,
     key: day,
-    width: 50,
+    width: 70,
     // fixed: 'right',
   }))
 
@@ -60,7 +44,7 @@ export default function DataTable() {
       title: 'Продукт/гр',
       dataIndex: 'product',
       key: 'product',
-      width: 150,
+      // width: 150,
       fixed: 'left',
       ellipsis: {
         showTitle: true,
@@ -70,7 +54,7 @@ export default function DataTable() {
       title: 'ТК',
       dataIndex: 'tk',
       key: 'tk',
-      width: 80,
+      // width: 80,
       fixed: 'left',
       ellipsis: {
         showTitle: true,
@@ -81,8 +65,8 @@ export default function DataTable() {
 
   return (
     <Table
-      columns={columns}
-      dataSource={data}
+      columns={columns ? columns : []}
+      dataSource={data ? data : []}
       // loading={true}
       // bordered
       size='middle'
