@@ -10,11 +10,6 @@ const btnStyles = `${btnStyle.button} ${style.button}`
 
 export default function MainContent({ type, getExcel }) {
   const navigate = useNavigate()
-  const selectedShop = useSelector(state => state.dataReducer.selectedShop)
-  const selectedShops = useSelector(state => state.dataReducer.selectedShops)
-  const selectedCategories = useSelector(
-    state => state.dataReducer.selectedCategories
-  )
   const forecast = useSelector(state => state.dataReducer.forecast)
 
   const handleExcel = e => {
