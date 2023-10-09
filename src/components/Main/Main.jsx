@@ -66,9 +66,9 @@ export default function Main({ type }) {
 
   return (
     <div className={style.main}>
-      <SideBar type={type} handleUpdate={updateForecast} />
+      <SideBar type={type} handleForecastUpdate={updateForecast} />
       <div className={style.wrapper}>
-        <Header type={type} />
+        <Header type={type} handleForecastUpdate={updateForecast} />
         <MainContent type={type} />
       </div>
     </div>

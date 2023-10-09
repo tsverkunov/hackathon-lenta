@@ -1,26 +1,29 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Dropdown } from 'antd'
 import { DownOutlined, LogoutOutlined } from '@ant-design/icons'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  setSelectedCity,
-  setSelectedShop,
-} from '../../redux/dataReducer.js'
+import { setSelectedCity, setSelectedShop } from '../../redux/dataReducer.js'
 import { setLoggedIn } from '../../redux/formReducer'
 import api from '../../utils/Api.js'
 import style from './Header.module.css'
 
-export default function Header({ type }) {
+export default function Header({ type, handleForecastUpdate }) {
   const dispatch = useDispatch()
+  // const forecast = useSelector(state => state.dataReducer.forecast)
   const shops = useSelector(state => state.dataReducer.shops)
   const selectedShop = useSelector(state => state.dataReducer.selectedShop)
   const cities = useSelector(state => state.dataReducer.cities)
   const selectedCity = useSelector(state => state.dataReducer.selectedCity)
+  const [initialized, setInitialized] = useState(false)
 
   useEffect(() => {
-    
-  }, [])
+    if (selectedShop && !initialized) {
+      setInitialized(true)
+    } else if (initialized) {
+      handleForecastUpdate()
+    } 
+  }, [selectedShop, initialized])
 
   const handleLogout = () => {
     api
