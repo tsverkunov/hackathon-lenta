@@ -48,11 +48,8 @@ export const {
   setShops,
   setSelectedShop,
   setCategories,
-<<<<<<< HEAD
   setSelectedCategories,
   setForeCast,
-=======
   addSelectedCategories,
   removeSelectedCategories,
->>>>>>> c38fe8d5ee26f33bbb28ea8d3ef24e0fb027376f
 } = dataReducer.actions
