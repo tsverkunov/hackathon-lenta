@@ -7,6 +7,7 @@ const dataReducer = createSlice({
     selectedCity: '',
     shops: [],
     selectedShop: '',
+    selectedShops: [],
     categories: {},
     selectedCategories: [],
     forecast: []
@@ -23,6 +24,14 @@ const dataReducer = createSlice({
     },
     setSelectedShop: (state, action) => {
       state.selectedShop = action.payload
+    },
+    addSelectedShops: (state, action) => {
+      state.selectedShops.push(...action.payload)
+    },
+    removeSelectedShops: (state, action) => {
+      state.selectedShops = state.selectedShops.filter(
+        (shop) => !action.payload.includes(shop)
+      )
     },
     setCategories: (state, action) => {
       state.categories = action.payload
@@ -47,6 +56,8 @@ export const {
   setSelectedCity,
   setShops,
   setSelectedShop,
+  addSelectedShops,
+  removeSelectedShops,
   setCategories,
   setSelectedCategories,
   setForeCast,

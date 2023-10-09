@@ -6,13 +6,14 @@ import calendarIcon from '../../images/menu/calendar.svg'
 import MenuWrapper from '../MenuWrapper/MenuWrapper'
 import Categories from '../Categories/Categories'
 import PeriodSelector from '../PeriodSelector/PeriodSelector'
+import MultiSelect from '../MultiSelect/MultiSelect'
 
 export default function FilterMenu({ type }) {
   return (
     <form className={style.form} action='submit'>
       {type === 'stats' && (
         <MenuWrapper icon={shopIcon} title='Выбрать ТК'>
-          <p>Тут будет выбор ТК</p>
+          <MultiSelect/>
         </MenuWrapper>
       )}
       <MenuWrapper icon={listIcon} title='Категории'>
