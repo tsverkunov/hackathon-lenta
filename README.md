@@ -24,5 +24,4 @@
 
 ## Авторы
 
-- [Цверкунов Иван](https://github.com/tsverkunov)
-- [Боровов Даниил](https://github.com/Inc0re)
+[Цверкунов Иван](https://github.com/tsverkunov) 🤜🤛 [Боровов Даниил](https://github.com/Inc0re)

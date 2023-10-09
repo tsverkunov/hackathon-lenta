@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Dropdown } from 'antd'
 import { DownOutlined, LogoutOutlined } from '@ant-design/icons'
 import { useSelector, useDispatch } from 'react-redux'
@@ -9,6 +11,7 @@ import api from '../../utils/Api.js'
 import style from './Header.module.css'
 
 export default function Header({ type, handleForecastUpdate }) {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   // const forecast = useSelector(state => state.dataReducer.forecast)
   const shops = useSelector(state => state.dataReducer.shops)
@@ -22,19 +25,20 @@ export default function Header({ type, handleForecastUpdate }) {
       setInitialized(true)
     } else if (initialized) {
       handleForecastUpdate()
-    } 
+    }
   }, [selectedShop, initialized])
 
   const handleLogout = () => {
+    localStorage.removeItem('token')
     api
       .logout()
       .then(() => {
-        localStorage.removeItem('token')
         dispatch(setLoggedIn(false))
       })
       .catch(error => {
         console.log('error :', error)
       })
+    navigate('/')
   }
 
   return (

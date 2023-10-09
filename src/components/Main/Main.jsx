@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setForeCast } from '../../redux/dataReducer'
 import { useEffect } from 'react'
 import api from '../../utils/Api.js'
-import { setCategories } from '../../redux/dataReducer.js'
+import { setCategories, setIsForecastLoading } from '../../redux/dataReducer.js'
 import MainContent from '../MainContent/MainContent'
 import SideBar from '../SideBar/SideBar'
 import Header from '../Header/Header'
@@ -18,6 +18,7 @@ export default function Main({ type }) {
   )
 
   async function updateForecast() {
+    dispatch(setIsForecastLoading(true))
     try {
       const res = await api.getForecast({
         store: selectedShop,
@@ -27,6 +28,8 @@ export default function Main({ type }) {
       console.log('res :', res)
     } catch (err) {
       console.log(err)
+    } finally {
+      dispatch(setIsForecastLoading(false))
     }
   }
 

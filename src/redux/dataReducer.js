@@ -11,7 +11,12 @@ const dataReducer = createSlice({
     categories: {},
     selectedCategories: [],
     forecast: [],
+<<<<<<< HEAD
     stats: []
+=======
+    isForecastLoading: false,
+    isStatsLoading: false,
+>>>>>>> d86e4889a902e455515452c78302bc1493f0c0df
   },
   reducers: {
     setCities: (state, action) => {
@@ -48,9 +53,18 @@ const dataReducer = createSlice({
     setForeCast: (state, action) => {
       state.forecast = action.payload
     },
+<<<<<<< HEAD
     setStats: (state, action) => {
       state.forecast = action.payload
     }
+=======
+    setIsForecastLoading: (state, action) => {
+      state.isForecastLoading = action.payload
+    },
+    setIsStatsLoading: (state, action) => {
+      state.isStatsLoading = action.payload
+    },
+>>>>>>> d86e4889a902e455515452c78302bc1493f0c0df
   },
 })
 
@@ -67,5 +81,10 @@ export const {
   setForeCast,
   addSelectedCategories,
   removeSelectedCategories,
+<<<<<<< HEAD
   setStats
+=======
+  setIsForecastLoading,
+  setIsStatsLoading,
+>>>>>>> d86e4889a902e455515452c78302bc1493f0c0df
 } = dataReducer.actions
