@@ -35,6 +35,7 @@ export default function DataTable() {
     dataIndex: day,
     key: day,
     width: 70,
+    align: 'center',
     // fixed: 'right',
   }))
 
