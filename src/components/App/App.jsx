@@ -57,8 +57,6 @@ function App() {
           <Route path='/' element={<Login onLogin={handleLogin} />} />
           <Route element={<ProtectedRout loggedIn={loggedIn} />}>
             <Route path='/select' element={<StartSelection />} />
-            <Route path='/prediction' element={<Main />} />
-            <Route path='/stats' element={<Main />} />
             <Route path='/forecast' element={<Main type='forecast' />} />
             <Route path='/stats' element={<Main type='stats' />} />
           </Route>
