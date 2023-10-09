@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 export default function DataTable() {
 
   const forecast = useSelector(state => state.dataReducer.forecast)
+  const isForecastLoading = useSelector(state => state.dataReducer.isForecastLoading)
   const productList = forecast.map(product => product.sku)
   const storeList = forecast.map(store => store.store)
   const salesUnits = forecast.map(units => units.sales_units)
@@ -66,7 +67,7 @@ export default function DataTable() {
     <Table
       columns={columns ? columns : []}
       dataSource={data ? data : []}
-      // loading={true}
+      loading={isForecastLoading}
       // bordered
       size='middle'
       // scroll={{

@@ -7,7 +7,7 @@ import CustomSelect from "../CustomSelect/CustomSelect.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {filled, selectedCities, selectedTK, showCitiesList, showListTK} from '../../redux/selectReducer.js';
-import dataReducer, {setForeCast, setSelectedCity, setSelectedShop} from "../../redux/dataReducer.js";
+import {setForeCast, setSelectedCity, setSelectedShop, setIsForecastLoading} from "../../redux/dataReducer.js";
 import {useEffect} from "react";
 import api from "../../utils/Api.js";
 
@@ -31,6 +31,7 @@ const StartSelection = () => {
   }, [defaultTextCity, defaultTextTK])
 
   const handleForecast = () => {
+    dispatch(setIsForecastLoading(true))
     api
       .getForecast({
         store: [defaultTextTK],
@@ -39,6 +40,9 @@ const StartSelection = () => {
         dispatch(setForeCast(data.data))
       })
       .catch(error => console.log(error))
+      .finally(() => {
+        dispatch(setIsForecastLoading(false))
+      })
   }
 
   const onSubmit = (e) => {
