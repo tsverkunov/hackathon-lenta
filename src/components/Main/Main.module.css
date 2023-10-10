@@ -1,0 +1,11 @@
+.main {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  height: 100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}

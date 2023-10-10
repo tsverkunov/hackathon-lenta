@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.picker {
+  width: 90%;
+  margin-top: 20px;
+}

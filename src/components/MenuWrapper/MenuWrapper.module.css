@@ -1,0 +1,28 @@
+.level0 {
+  padding: 0 20px;
+  position: relative;
+  height: 57px;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  align-items: center;
+  background-color: #fff;
+}
+
+.level0:after {
+  justify-self: flex-end;
+  width: 32px;
+  height: 32px;
+  background-image: url(../../images/arrow.svg);
+  content: '';
+  transition: transform 0.5s;
+}
+
+.catIcon {
+  margin-right: 10px;
+  height: 32px;
+  width: 32px;
+}
+
+.catDetails[open] > .level0:after {
+  transform: rotate(180deg);
+}
