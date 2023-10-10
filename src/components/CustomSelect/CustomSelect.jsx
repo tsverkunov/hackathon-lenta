@@ -16,21 +16,6 @@ const CustomSelect = ({
   const dispatch = useDispatch()
   const optionsRef = useRef(null)
 
-  // useEffect(() => {
-  //   const log = (e) => {
-  //     e.preventDefault()
-  //     if(!e.composedPath().includes(optionsRef.current) && (showOptionList || isOpenList )) {
-  //       dispatch(showList())
-  //     }
-  //
-  //     console.log(optionsRef.current);
-  //   }
-  //
-  //   document.addEventListener('click', log)
-  //   return () => document.removeEventListener('click', log)
-  // }, []);
-
-
   const handleListDisplay = () => {
     dispatch(showList())
     if (isOpenList) {

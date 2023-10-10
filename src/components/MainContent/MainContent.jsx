@@ -13,12 +13,6 @@ export default function MainContent({ type, getExcel }) {
   const forecast = useSelector(state => state.dataReducer.forecast)
 
   const handleExcel = e => {
-    // type === 'forecast'
-    //   ? getExcel(type, { store: selectedShop, subcategory: selectedCategories })
-    //   : getExcel(type, {
-    //       store: selectedShops,
-    //       subcategory: selectedCategories,
-    //     })
     e.preventDefault()
     getExcel()
   }
