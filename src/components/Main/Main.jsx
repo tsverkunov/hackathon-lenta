@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useSelector, useDispatch } from 'react-redux'
-import { setForeCast } from '../../redux/dataReducer'
+import { setForeCast, setStats } from '../../redux/dataReducer'
 import { useEffect } from 'react'
 import api from '../../utils/Api.js'
-import { setCategories, setIsForecastLoading } from '../../redux/dataReducer.js'
+import { setCategories, setIsForecastLoading, setIsStatsLoading } from '../../redux/dataReducer.js'
 import MainContent from '../MainContent/MainContent'
 import SideBar from '../SideBar/SideBar'
 import Header from '../Header/Header'
@@ -13,6 +13,7 @@ import style from './Main.module.css'
 export default function Main({ type }) {
   const dispatch = useDispatch()
   const selectedShop = useSelector(state => state.dataReducer.selectedShop)
+  const selectedShops = useSelector(state => state.dataReducer.selectedShops)
   const selectedCategories = useSelector(
     state => state.dataReducer.selectedCategories
   )
@@ -29,6 +30,22 @@ export default function Main({ type }) {
       console.log(err)
     } finally {
       dispatch(setIsForecastLoading(false))
+    }
+  }
+
+  async function updateStats() {
+    dispatch(setIsStatsLoading(true))
+    try {
+      const res = await api.getStats({
+        store: selectedShops,
+        subcategory: selectedCategories,
+      })
+      dispatch(setStats(res.sales_and_forecast_objects))
+      console.log('res :', res)
+    } catch (err) {
+      console.log(err)
+    } finally {
+      dispatch(setIsStatsLoading(false))
     }
   }
 
@@ -73,7 +90,7 @@ const handleExcel = () => {
 
   return (
     <div className={style.main}>
-      <SideBar type={type} handleForecastUpdate={updateForecast} />
+      <SideBar type={type} handleForecastUpdate={updateForecast} handleStatsUpdate={updateStats} />
       <div className={style.wrapper}>
         <Header type={type} handleForecastUpdate={updateForecast} />
         <MainContent

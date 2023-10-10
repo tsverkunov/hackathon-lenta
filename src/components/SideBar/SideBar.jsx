@@ -3,11 +3,10 @@ import FilterMenu from '../FilterMenu/FilterMenu'
 import buttonStyle from '../Button/Button.module.css'
 import style from './SideBar.module.css'
 
-export default function SideBar({ type, handleForecastUpdate }) {
+export default function SideBar({ type, handleForecastUpdate, handleStatsUpdate }) {
   function handleSubmit(e) {
     e.preventDefault()
-    handleForecastUpdate()
-    console.log('Открыть прогноз')
+    type === 'forecast' ? handleForecastUpdate() : handleStatsUpdate()
   }
 
   function handleCollapse(e) {
