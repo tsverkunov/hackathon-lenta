@@ -80,7 +80,6 @@ const handleExcel = () => {
           }
         })
 
-        console.log('tree :', tree)
         dispatch(setCategories(tree))
       })
       .catch(error => {

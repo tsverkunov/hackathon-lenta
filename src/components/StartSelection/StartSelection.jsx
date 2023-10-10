@@ -14,10 +14,8 @@ import api from "../../utils/Api.js";
 const StartSelection = () => {
   const navigate = useNavigate()
   const shops = useSelector(state => state.selectReducer.shops)
-  // const citiesList = useSelector(state => state.selectReducer.citiesList)
   const isShowedCities = useSelector(state => state.selectReducer.isShowedCities)
   const defaultTextCity = useSelector(state => state.selectReducer.defaultTextCity)
-  // const listTK = useSelector(state => state.selectReducer.listTK)
   const isShowedTK = useSelector(state => state.selectReducer.isShowedTK)
   const defaultTextTK = useSelector(state => state.selectReducer.defaultTextTK)
   const isFilled = useSelector(state => state.selectReducer.isFilled)

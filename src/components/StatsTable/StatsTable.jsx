@@ -8,7 +8,6 @@ export default function StatsTable() {
   const dispatch = useDispatch()
   const stats = useSelector(state => state.dataReducer.stats)
   const selectedShop = useSelector(state => state.dataReducer.selectedShop)
-  // const selectedShop = useSelector(state => state.dataReducer.selectedShop)
   const selectedCategories = useSelector(
     state => state.dataReducer.selectedCategories
   )
@@ -23,16 +22,13 @@ export default function StatsTable() {
         subcategory: selectedCategories,
       })
       .then(data => {
-        console.log(data)
         dispatch(setStats(data.sales_and_forecast_objects))
-        console.log(stats)
       })
       .catch(error => console.log('error :', error))
       .finally(() => {
         dispatch(setIsStatsLoading(false))
       })
   }, [])
-  console.log(stats)
 
 function getRows() {
   const rows = []
@@ -74,17 +70,6 @@ function getRows() {
 }
 
 const rows = getRows()
-console.log('rows :', rows)
-
-// result columns sample
-// const daysColumns = [
-//   {
-//     title: '16.07.2023',
-//     dataIndex: '16.07.2023',
-//     key: '16.07.2023',
-//     width: 100,
-//     align: 'center',
-//   },
 
 function getColumns() {
   const dates = [...new Set(stats.map(item => item.date))]
@@ -99,8 +84,6 @@ function getColumns() {
 }
 
 const daysColumns = getColumns()
-console.log('daysColumns :', daysColumns)
-
 
   const columns = [
     {
