@@ -51,7 +51,7 @@ const dataReducer = createSlice({
       state.forecast = action.payload
     },
     setStats: (state, action) => {
-      state.forecast = action.payload
+      state.stats = action.payload
     },
     setIsForecastLoading: (state, action) => {
       state.isForecastLoading = action.payload
