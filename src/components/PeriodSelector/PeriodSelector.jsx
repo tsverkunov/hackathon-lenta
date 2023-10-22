@@ -1,6 +1,5 @@
 import dayjs from 'dayjs'
 import style from './PeriodSelector.module.css'
-
 import { DatePicker } from 'antd'
 
 const locale = {
