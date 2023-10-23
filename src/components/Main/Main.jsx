@@ -68,7 +68,6 @@ const handleExcel = () => {
           const group = item.group
           const category = item.category
           const subcategory = item.subcategory
-          // const sku = item.sku
           if (!tree[group]) {
             tree[group] = {}
           }

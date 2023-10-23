@@ -9,11 +9,11 @@ export default function DataTable() {
   const storeList = forecast.map(store => store.store)
   const salesUnits = forecast.map(units => units.sales_units)
 
-  //достаю даты и привожу к нужному для таблицы формоту
+  //достаю даты и привожу к нужному для таблицы формату
   const keysArr = salesUnits.map(obj => Object.keys(obj))
   const days = keysArr.length ? keysArr[0].map(item => item.split('-').slice(1).reverse().join('.')) : []
 
-  //достаю значения и привожу к нужному для таблицы формоту
+  //достаю значения и привожу к нужному для таблицы формату
   const valuesArr = salesUnits.map(obj => Object.values(obj))
 
   const data = []
@@ -37,7 +37,6 @@ export default function DataTable() {
     key: day,
     width: 70,
     align: 'center',
-    // fixed: 'right',
   }))
 
   const columns = [
