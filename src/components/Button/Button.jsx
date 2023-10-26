@@ -14,7 +14,7 @@ const Button = ({
       disabled={!isValid}
       aria-label={value}
     >
-      {loading ? 'Входим...' : value}
+      {loading ? 'Входим . . .' : value}
     </button>
   );
 };
