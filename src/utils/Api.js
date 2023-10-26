@@ -4,7 +4,7 @@ class Api {
   constructor(options) {
     this._version = options.version
     this._headers = options.headers
-    this._baseUrl = `${options.baseUrl}/api/${options.version}`
+    this._baseUrl = `${options.baseUrl}/api/${this._version}`
   }
 
   _getJson(res) {

@@ -7,7 +7,7 @@ import Login from '../Login/Login.jsx'
 import StartSelection from '../StartSelection/StartSelection.jsx'
 import ProtectedRout from '../ProtectedRout/ProtectedRout.jsx'
 import api from '../../utils/Api.js'
-import { setLoggedIn } from '../../redux/formReducer.js'
+import {setLoading, setLoggedIn} from '../../redux/formReducer.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { setShops } from '../../redux/selectReducer.js'
 import {
@@ -22,6 +22,7 @@ function App() {
 
   const handleLogin = ({ login, password }) => {
     localStorage.removeItem('token')
+    dispatch(setLoading(true))
     api
       .login(login, password)
       .then(data => {
@@ -32,6 +33,9 @@ function App() {
       })
       .catch(error => {
         console.log('error :', error)
+      })
+      .finally(() => {
+        dispatch(setLoading(false))
       })
   }
 

@@ -10,7 +10,8 @@ const formReducer = createSlice({
       login: '',
       password: ''
     },
-    isValid: false
+    isValid: false,
+    loading: false
   },
   reducers: {
     setLoggedIn(state, action) {
@@ -30,6 +31,9 @@ const formReducer = createSlice({
     },
     checkValid(state, action) {
       state.isValid = action.payload
+    },
+    setLoading(state, action) {
+      state.loading = action.payload
     }
   }
 })
@@ -41,5 +45,6 @@ export const {
   changePassword,
   changeErrorLogin,
   changeErrorPassword,
-  checkValid
+  checkValid,
+  setLoading
 } = formReducer.actions

@@ -1,7 +1,11 @@
 import style from "../Button/Button.module.css";
 
-const Button = ({onSubmit, value, isValid = true}) => {
-
+const Button = ({
+                  onSubmit,
+                  value,
+                  loading = false,
+                  isValid = true
+}) => {
   return (
     <button
       className={style.button}
@@ -10,7 +14,7 @@ const Button = ({onSubmit, value, isValid = true}) => {
       disabled={!isValid}
       aria-label={value}
     >
-      {value}
+      {loading ? 'Входим...' : value}
     </button>
   );
 };
