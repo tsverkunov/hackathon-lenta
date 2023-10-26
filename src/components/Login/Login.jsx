@@ -10,6 +10,7 @@ import {
   checkValid
 } from "../../redux/formReducer.js";
 import Button from "../Button/Button.jsx";
+import PropTypes from "prop-types";
 
 const Login = ({onLogin}) => {
   const login = useSelector(state => state.formReducer.login)
@@ -75,3 +76,7 @@ const Login = ({onLogin}) => {
 };
 
 export default Login;
+
+Login.propTypes = {
+  onLogin: PropTypes.func,
+}

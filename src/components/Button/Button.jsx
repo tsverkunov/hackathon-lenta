@@ -1,4 +1,6 @@
 import style from "../Button/Button.module.css";
+import PropTypes from 'prop-types';
+
 
 const Button = ({
                   onSubmit,
@@ -20,3 +22,11 @@ const Button = ({
 };
 
 export default Button;
+
+Button.propTypes = {
+  onSubmit: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  isValid: PropTypes.bool,
+}
+

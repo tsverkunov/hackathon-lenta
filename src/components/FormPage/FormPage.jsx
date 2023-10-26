@@ -1,6 +1,7 @@
 import style from './FormPage.module.css'
+import formPageStyle from './FormPage.module.css'
 import logo from '../../images/logo.svg'
-import formPageStyle from "./FormPage.module.css";
+import PropTypes from "prop-types";
 
 function FormPage({children}) {
   return (
@@ -15,3 +16,7 @@ function FormPage({children}) {
 }
 
 export default FormPage;
+
+FormPage.propTypes = {
+  children: PropTypes.node.isRequired,
+}

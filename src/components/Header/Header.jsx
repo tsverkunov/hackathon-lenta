@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { Dropdown } from 'antd'
 import { DownOutlined, LogoutOutlined } from '@ant-design/icons'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSelectedCity, setSelectedShop } from '../../redux/dataReducer.js'
-import { setLoggedIn } from '../../redux/formReducer'
+import {changeLogin, changePassword, setLoggedIn} from '../../redux/formReducer'
 import api from '../../utils/Api.js'
 import style from './Header.module.css'
 
@@ -28,16 +28,21 @@ export default function Header({ type, handleForecastUpdate }) {
   }, [selectedShop, initialized])
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
     api
       .logout()
       .then(() => {
         dispatch(setLoggedIn(false))
+        dispatch(changeLogin(''))
+        dispatch(changePassword(''))
       })
       .catch(error => {
         console.log('error :', error)
       })
-    navigate('/')
+      .finally(() => {
+        localStorage.clear()
+        navigate('/')
+      })
+
   }
 
   return (
@@ -54,10 +59,10 @@ export default function Header({ type, handleForecastUpdate }) {
             },
           }}
         >
-          <a href='#' className={style.select}>
+          <Link to='#' className={style.select}>
             {selectedCity}
             <DownOutlined className={style.selectIcon} />
-          </a>
+          </Link>
         </Dropdown>
         {type === 'forecast' && (
           <Dropdown
@@ -70,10 +75,10 @@ export default function Header({ type, handleForecastUpdate }) {
               },
             }}
           >
-            <a href='#' className={style.select}>
+            <Link to='#' className={style.select}>
               {selectedShop}
               <DownOutlined className={style.selectIcon} />
-            </a>
+            </Link>
           </Dropdown>
         )}
         <button className={style.button} onClick={handleLogout}>
